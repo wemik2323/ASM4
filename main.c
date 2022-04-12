@@ -7,10 +7,18 @@ int main() {
     scanf("%hi", &N);
     short a[N];
     int c, d;
-    puts("Введите c, d:");
+    puts("Введите c, d (c < d): ");
     scanf("%d%d", &c, &d);
-    puts("Введите L: ");
+    if (d < c) {
+        printf("Перестаньте нарушать законы логики!\n");
+        return 0;
+    }
+    puts("Введите L (L < N): ");
     scanf("%hi", &L);
+    if (N < L) {
+        printf("Перестаньте нарушать законы логики!\n");
+        return 0;
+    }
     printf("Введите массив %d элементов( a[i] = [-32,768 : 32,767] )\n", N);
     for (int i = 0; i < N; i++) {
         printf("a[%d] = ", i);
