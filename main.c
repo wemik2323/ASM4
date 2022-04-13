@@ -1,5 +1,6 @@
 #include <stdio.h>
 extern short massiv(short * a, short c, short d, short num, short l);
+FILE* f;
 
 int main() {
     short N, L;
@@ -10,13 +11,21 @@ int main() {
     puts("Введите c, d (c < d): ");
     scanf("%d%d", &c, &d);
     if (d < c) {
-        printf("Перестаньте нарушать законы логики!\n");
+        f=fopen("jopa.txt","r");
+        char hui;
+        while((hui = fgetc(f)) != EOF)
+            putchar(hui);
+        fclose(f);
         return 0;
     }
     puts("Введите L (L < N): ");
     scanf("%hi", &L);
     if (N < L) {
-        printf("Перестаньте нарушать законы логики!\n");
+        f=fopen("jopa.txt","r");
+        char hui;
+        while((hui = fgetc(f)) != EOF)
+            putchar(hui);
+        fclose(f);
         return 0;
     }
     printf("Введите массив %d элементов( a[i] = [-32,768 : 32,767] )\n", N);
