@@ -9,6 +9,7 @@ massiv:
     push rbp
     mov rbp, rsp
 
+    mov r14, 0
     movsx rsi, si 
     movsx rdx, dx
     mov r13, rdi    ; *a
@@ -23,15 +24,19 @@ massiv:
     xor rcx, rcx
     xor rbx, rbx
     inc rbx
+
     lp:
     mov ax, [r13 + rcx]
     movsx rax, ax
+    cmp rax, r14
+    jg end_cmp
     cmp rax, r9
     jl end_cmp
     cmp rax, r10
     jg end_cmp
     imul bx, ax
     add r12, 1
+
     end_cmp:
     add cx, 2
     cmp r12, r8
@@ -47,6 +52,7 @@ massiv:
     mov rax, 1 
     mov rdi, 1
     syscall
+
     bruh:
     mov rax, rbx
 
